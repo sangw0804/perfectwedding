@@ -1,0 +1,15 @@
+spring:
+  config:
+    import: file:env.properties
+  neo4j:
+    uri: ${NEO4J_URI}
+    authentication:
+      username: ${NEO4J_ID}
+      password: ${NEO4J_PW}
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          neo4j: DEBUG
