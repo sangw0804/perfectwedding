@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="~{base :: layout(~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div>
+    <form th:object="${editGroomBrideReq}" th:action="@{/groomBrides}" th:method="patch">
+        <label for="type">타입</label>
+        <select th:field="*{type}" required>
+            <option
+                th:each="gbt : ${T(com.swoh.perfectwedding.domain.GroomBrideType).values()}"
+                th:value="${gbt.name()}"
+                th:text="${gbt.krName}"
+            >
+            </option>
+        </select>
+        <button class="btn btn-accent" onclick="confirm('정말 수정하시겠습니까?')">수정하기</button>
+    </form>
+</div>
+</body>
+</html>

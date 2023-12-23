@@ -1,11 +1,11 @@
 spring:
-  config:
-    import: file:env.properties
   neo4j:
     uri: ${NEO4J_URI}
     authentication:
       username: ${NEO4J_ID}
       password: ${NEO4J_PW}
+  thymeleaf:
+    cache: false
 
 logging:
   level:
@@ -13,3 +13,6 @@ logging:
       springframework:
         data:
           neo4j: DEBUG
+
+url:
+  app: http://localhost:8080

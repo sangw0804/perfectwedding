@@ -1,6 +1,5 @@
 package com.swoh.perfectwedding.usecase
 
-import com.swoh.perfectwedding.domain.GroomBrideType
 import com.swoh.perfectwedding.persistence.node.GroomBride
 import com.swoh.perfectwedding.persistence.node.GroomBrideRepository
 import com.swoh.perfectwedding.persistence.node.Plan
@@ -17,12 +16,11 @@ class JoinUsecase(
     @Transactional
     fun join(
         uid: String,
-        type: GroomBrideType,
     ) {
         val plan = Plan.create()
         val hasPlan = HasPlan.create(plan)
         val groomBride = GroomBride.create(
-            hasPlan = hasPlan, type = type, uid = uid
+            hasPlan = hasPlan, uid = uid
         )
         planRepository.save(plan)
         groomBrideRepository.save(groomBride)
